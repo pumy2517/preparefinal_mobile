@@ -8,7 +8,7 @@ final String columnAge = "age";
 final String columnPassword = "password";
 
 class Account {
-  int _id;
+  int id;
   String userid;
   String name;
   int age;
@@ -22,12 +22,13 @@ class Account {
       columnPassword: password,
 
     };
-    if (_id != null) { map[columnId] = this._id; }
+    if (id != null) { map[columnId] = this.id; }
     
     return map;
   }
 
-  Account({String userid, String name, int age, String password}){
+  Account({int id,String userid, String name, int age, String password}){
+    this.id = id;
     this.userid = userid;
     this.name = name;
     this.age = age;
@@ -36,7 +37,7 @@ class Account {
 
 
   Account.formMap(Map<String, dynamic> map) {
-    this._id = map[columnId];
+    this.id = map[columnId];
     this.userid = map[columnUser];
     this.name = map[columnName];
     this.age = map[columnAge];
@@ -65,7 +66,7 @@ class TodoProvider {
   }
 
   Future<Account> insert(Account account) async {
-    account._id = await db.insert(tableTodo, account.toMap());
+    account.id = await db.insert(tableTodo, account.toMap());
     return account;
   }
 
@@ -120,7 +121,7 @@ class TodoProvider {
       tableTodo,
       account.toMap(),
       where: '$columnId = ?',
-      whereArgs: [account._id],
+      whereArgs: [account.id],
     );
   }
 

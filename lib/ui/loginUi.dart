@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../model/share.dart';
 import '../model/userDB.dart';
 import './homeUi.dart';
+import './registerUi.dart';
 
 class LoginUi extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class LoginScreen extends State<LoginUi> {
               children: <Widget>[
                 Image.asset(
                   "images/test.JPG",
-                  height: 250,
+                  height: 180,
                 ),
                 TextFormField(
                   decoration: InputDecoration(
@@ -92,7 +93,11 @@ class LoginScreen extends State<LoginUi> {
                   child: FlatButton(
                     child: Text("Register"),
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/register');
+                      Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterPage()),
+                          );
                     },
                   ),
                   alignment: Alignment.topRight,

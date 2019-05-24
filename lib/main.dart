@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './ui/registerUi.dart';
 import './ui/loginUi.dart';
+import './ui/profileUi.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => LoginUi(),
-        "/register": (context) => RegisterPage()
+        "/register": (context) => RegisterPage(),
+        "/profile": (context) => ProfileUi(),
       },
     );
   }
