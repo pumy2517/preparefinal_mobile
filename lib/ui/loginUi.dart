@@ -24,6 +24,7 @@ class LoginScreen extends State<LoginUi> {
   void initState() {
     super.initState();
     this.userdb.open();
+    SharedPreferencesUtil.saveLastLogin(null);
   }
 
   @override
@@ -95,7 +96,7 @@ class LoginScreen extends State<LoginUi> {
                   child: FlatButton(
                     child: Text("Register"),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => RegisterPage()),

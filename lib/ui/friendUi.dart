@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import './myfriendUi.dart';
 import 'dart:convert';
 import 'dart:async';
 
@@ -118,12 +119,12 @@ class FriendScreen extends State<FriendUi> {
                 ],
               ),
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => MyfriendPage(id: values[index].id, name: values[index].name),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyFriendUi(id: values[index].id, name: values[index].name),
+                  ),
+                );
               },
             ),
           );

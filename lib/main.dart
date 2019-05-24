@@ -3,6 +3,7 @@ import './ui/registerUi.dart';
 import './ui/loginUi.dart';
 import './ui/profileUi.dart';
 import './ui/friendUi.dart';
+import './ui/myfriendUi.dart';
 
 void main() => runApp(MyApp());
 

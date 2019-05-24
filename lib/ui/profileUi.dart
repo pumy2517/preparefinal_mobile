@@ -28,17 +28,21 @@ class ProfileScreen extends State<ProfileUi> {
     print("testfuckyou");
     SharedPreferencesUtil.loadLastLogin().then((value) async {
       await userdb.open();
-      userdb.getAccountByUserId(value).then((values) {
-        _account = values;
-        username.text = _account.userid;
-        password.text = _account.password;
-        name.text = _account.name;
-        age.text = _account.age.toString();
+      await userdb.getAccountByUserId(value).then((values) {
+        setState(() {
+          _account = values;
+          username.text = _account.userid;
+          password.text = _account.password;
+          name.text = _account.name;
+          age.text = _account.age.toString();
+        });
       });
     });
     SharedPreferencesUtil.loadQuote().then((value) {
-      ProfileScreen.quote = value;
-      quotefield.text = quote;
+      setState(() {
+        ProfileScreen.quote = value;
+        quotefield.text = quote;
+      });
     });
   }
 
@@ -105,7 +109,7 @@ class ProfileScreen extends State<ProfileUi> {
                                 name: name.text,
                                 age: int.parse(age.text),
                                 password: password.text));
-                            
+
                             _account.userid = username.text;
                             _account.name = name.text;
                             _account.age = int.parse(age.text);
