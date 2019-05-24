@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './ui/registerUi.dart';
 import './ui/loginUi.dart';
 import './ui/profileUi.dart';
+import './ui/friendUi.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginUi(),
         "/register": (context) => RegisterPage(),
         "/profile": (context) => ProfileUi(),
+        "/friend": (context) => FriendUi(),
       },
     );
   }

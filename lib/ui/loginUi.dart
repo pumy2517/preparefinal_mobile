@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../model/share.dart';
@@ -93,7 +95,7 @@ class LoginScreen extends State<LoginUi> {
                   child: FlatButton(
                     child: Text("Register"),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => RegisterPage()),

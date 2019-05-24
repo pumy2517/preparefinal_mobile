@@ -3,7 +3,9 @@ import '../model/userDB.dart';
 import '../model/share.dart';
 import './profileUi.dart';
 
-class HomeUi extends StatefulWidget{
+
+
+class HomeUi extends StatefulWidget {
   final Account _account;
   HomeUi(this._account);
 
@@ -13,18 +15,19 @@ class HomeUi extends StatefulWidget{
   }
 }
 
-class HomeScreen extends State<HomeUi>{
+class HomeScreen extends State<HomeUi> {
   String quote;
 
   void initState() {
     super.initState();
-    SharedPreferencesUtil.loadQuote().then((value){
+    SharedPreferencesUtil.loadQuote().then((value) {
       setState(() {
         this.quote = value;
       });
     });
     print("test");
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,17 +43,22 @@ class HomeScreen extends State<HomeUi>{
           ),
           RaisedButton(
             child: Text("PROFILE SETUP"),
-            onPressed: (){
+            onPressed: () {
               Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProfileUi()),
-                          );
+                context,
+                MaterialPageRoute(builder: (context) => ProfileUi()),
+              );
+            },
+          ),
+          RaisedButton(
+            child: Text("FRIEND"),
+            onPressed: () {
+              Navigator.pushNamed(context, "/friend");
             },
           ),
           RaisedButton(
             child: Text("LOGOUT"),
-            onPressed: (){
+            onPressed: () {
               SharedPreferencesUtil.saveLastLogin(null);
               SharedPreferencesUtil.saveQuote(null);
               Navigator.pushReplacementNamed(context, "/");
@@ -60,5 +68,4 @@ class HomeScreen extends State<HomeUi>{
       ),
     );
   }
-
 }
